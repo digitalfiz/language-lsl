@@ -1,6 +1,6 @@
 {
   "name": "language-lsl",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": false,
   "description": "A Linden Scripting Language package for Atom",
   "repository": "https://github.com/digitalfiz/language-lsl",
@@ -8,6 +8,5 @@
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
