@@ -1,0 +1,4 @@
+'.source.esl, .source.lsl':
+  'editor':
+    'increaseIndentPattern': '^(?![^{]*//.*\\{).*\\{[^}"\']*$'
+    'decreaseIndentPattern': '^\\s*\\}[;\\s]*$'

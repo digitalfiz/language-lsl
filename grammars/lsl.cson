@@ -1,0 +1,186 @@
+'fileTypes': [
+  'esl'
+  'lsl'
+]
+'foldingStartMarker': '\\{\\s*$'
+'foldingStopMarker': '^\\s*\\}'
+'name': 'LSL'
+'patterns': [
+  {
+    'match': '^\\s*\\n'
+    'name': 'invalid.suspect.source.empty.line.lsl'
+  }
+  {
+    'match': '^\\s+'
+    'name': 'indentation.lsl'
+  }
+  {
+    'match': '(<|=|,|\\(|\\*|/)\\s*-'
+    'name': 'valid.minus.lsl'
+  }
+  {
+    'match': '-[.0-9]'
+    'name': 'invalid.source.minus.lsl'
+  }
+  {
+    'match': '^(?!\\s|state|default|float|integer|key|list|rotation|string|vector|\\w+\\s*\\()\\b.*$'
+    'name': 'invalid.source.line.begin.lsl'
+  }
+  {
+    'match': '([^{};\\s,)\\]/]+|\\s+|\\)|,|])(?<!//)$'
+    'name': 'invalid.suspect.source.line.end.lsl'
+  }
+  {
+    'match': '\\s\\s+'
+    'name': 'invalid.suspect.space.double.lsl'
+  }
+  {
+    'match': '(^state\\b\\s+default\\b|\\s*state\\b\\s*$)'
+    'name': 'invalid.suspect.source.multiple.spaces.lsl'
+  }
+  {
+    'captures':
+      '1':
+        'name': 'constant.state.lsl'
+      '2':
+        'name': 'invalid.suspect.space.double.lsl'
+      '3':
+        'name': 'entity.name.states.lsl'
+    'match': '^(?:(?=default\\b|state\\b))(state\\b(?!\\s+default\\b))*(\\s\\s+)*\\s*(default\\b|\\w*)(?!$)'
+    'name': 'meta.name.state.declare.lsl'
+  }
+  {
+    'captures':
+      '1':
+        'name': 'constant.state.lsl'
+      '2':
+        'name': 'invalid.suspect.space.double.lsl'
+      '3':
+        'name': 'entity.name.states.lsl'
+    'match': '\\b(state\\b)(\\s\\s+)*\\s*(\\w*)(?!$)'
+    'name': 'meta.name.states.lsl'
+  }
+  {
+    'begin': '^\\b(\\w+\\b)*(\\s\\s+)*\\s*(\\w+\\b)(\\s\\s+)*\\s*(\\()(?!$)'
+    'beginCaptures':
+      '1':
+        'name': 'storage.type.lsl'
+      '2':
+        'name': 'invalid.suspect.space.double.lsl'
+      '3':
+        'name': 'entity.name.functions.global.declare.lsl'
+      '4':
+        'name': 'invalid.suspect.space.double.lsl'
+    'end': '\\)(?!$)'
+    'name': 'meta.functions.global.declare.lsl'
+    'patterns': [
+      {
+        'include': '$self'
+      }
+    ]
+  }
+  {
+    'captures':
+      '0':
+        'name': 'meta.variable.global.declare.lsl'
+      '1':
+        'name': 'storage.type.lsl'
+      '2':
+        'name': 'invalid.suspect.space.double.lsl'
+      '3':
+        'name': 'entity.name.variable.global.declare.lsl'
+    'match': '^(\\w+\\b)(\\s\\s+)*\\s*(\\w+)(?!$)'
+  }
+  {
+    'comment': 'LSL Types'
+    'match': '\\b(float|integer|key|list|rotation|string|vector)\\b'
+    'name': 'storage.type.lsl'
+  }
+  {
+    'comment': 'LSL Flow-control keywords'
+    'match': '\\b(do|else|for|if|jump|return|while)\\b'
+    'name': 'keyword.control.lsl'
+  }
+  {
+    'comment': 'LSL Constants'
+    'match': '\\b(DEG_TO_RAD|EOF|FALSE|NULL_KEY|PI(_BY_TWO)?|RAD_TO_DEG|SQRT2|T(RUE|WO_PI)|ZERO_(ROTATION|VECTOR))\\b'
+    'name': 'constant.language.lsl'
+  }
+  {
+    'comment': 'LSL Events'
+    'match': '\\b(at(_(rot_target|target)|tach)|c(hanged|o(llision(_(end|start))?|ntrol))|dataserver|email|http_response|l(and_collision(_(end|start))?|i(nk_message|sten))|mo(ney|ving_(end|start))|no(_sensor|t_at_(rot_target|target))|o(bject_rez|n_rez)|r(emote_data|un_time_permissions)|s(ensor|t(ate_(entry|exit)))|t(imer|ouch(_(end|start))?))\\b'
+    'name': 'constant.event.lsl'
+  }
+  {
+    'comment': 'LSL Functions ll*'
+    'match': '\\bll(R(o(t(Between|2(Up|Euler|Fwd|Left|A(ngle|xis))|Target(Remove)?|ateTexture|LookAt)|und)|e(set(Script|Time|OtherScript)|z(Object|AtRoot)|quest(SimulatorData|InventoryData|Permissions|AgentData)|freshPrimURL|gionSay|leaseC(ontrols|amera)|mo(te(Data(Reply|SetRegion)|LoadScriptPin)|ve(Inventory|VehicleFlags|FromLand(BanList|PassList)))))|G(ive(Money|Inventory(List)?)|odLikeRezObject|et(ObjectDetails|R(o(t|ot(Rotation|Position))|egion(Name|Corner|TimeDilation|F(PS|lags)))|G(MTclock|eometricCenter)|Mass|BoundingBox|S(c(ale|ript(State|Name))|ta(tus|rtParameter)|imulatorHostname|u(nDirection|bString))|N(otecardLine|umberOf(Sides|NotecardLines|Prims)|extEmail)|C(olor|enterOfMass|amera(Rot|Pos)|reator)|T(ime(stamp|OfDay)?|orque|exture(Rot|Scale|Offset)?)|Inventory(N(umber|ame)|Creator|Type|PermMask|Key)|O(wner(Key)?|mega|bject(Mass|Name|Desc|P(ermMask|rimCount)))|Date|UnixTime|P(os|ermissions(Key)?|arcel(MaxPrims|Details|Prim(Count|Owners)|Flags)|rimitiveParams)|Energy|Vel|Key|F(orce|reeMemory)|Wallclock|L(i(st(EntryType|Length)|nk(N(umber|ame)|Key))|ocal(Rot|Pos)|andOwnerAt)|A(n(imation(List)?|dResetTime)|ccel|ttached|lpha|gent(Size|Info)))|round(Repel|Slope|Normal|Contour)?)|XorBase64Strings(Correct)?|M(inEventDelay|o(d(ifyLand|Pow)|veToTarget)|essageLinked|D5String|apDestination)|B(ase64To(String|Integer)|reak(Link|AllLinks))|S(hout|c(aleTexture|riptDanger)|t(op(MoveToTarget|Sound|Hover|PointAt|LookAt|Animation)|artAnimation|ring(T(oBase64|rim)|Length))|i(n|tTarget)|ubStringIndex|e(n(sor(Re(peat|move))?|dRemoteData)|t(R(ot|emoteScriptAccessPin)|Buoyancy|S(c(ale|riptState)|tatus|itText|ound(Radius|Queueing))|HoverHeight|C(olor|amera(Params|EyeOffset|AtOffset))|T(imerEvent|o(uchText|rque)|ext(ure(Anim)?)?)|Object(Name|Desc)|Damage|P(os|a(yPrice|rcelMusicURL)|rim(itiveParams|URL))|Vehicle(RotationParam|Type|VectorParam|Fl(oatParam|ags))|Force(AndTorque)?|L(ink(Color|Texture|PrimitiveParams|Alpha)|ocalRot)|Alpha))|qrt|leep|a(y|meGroup))|HTTPRequest|C(SV2List|o(s|llision(S(ound|prite)|Filter))|eil|l(o(seRemoteDataChannel|ud)|earCameraParams)|reateLink)|T(o(Upper|Lower)|eleportAgent(Home)?|a(n|keC(ontrols|amera)|rget(Remove|Omega)?)|riggerSound(Limited)?)|In(s(tantMessage|ertString)|tegerToBase64)|O(penRemoteDataChannel|verMyLand|ffsetTexture|wnerSay)|D(i(e|alog)|umpList2String|e(t(ected(Rot|Gr(oup|ab)|Name|Type|Owner|Pos|Vel|Key|LinkNumber)|achFromAvatar)|leteSub(String|List)))|Un(Sit|escapeURL)|P(o(intAt|w)|ushObject|laySound(Slave)?|a(ss(Collisions|Touches)|r(seString(2List|KeepNulls)|celMedia(CommandList|Query)|ticleSystem))|reloadSound)|E(scapeURL|dgeOfWorld|uler2Rot|jectFromLand|mail)|V(olumeDetect|ec(Mag|Norm|Dist))|Key2Name|F(orceMouselook|loor|abs|rand)|W(hisper|ind|ater)|L(ist(R(eplaceList|andomize)|S(tatistics|ort)|2(Rot|String|CSV|Integer|Vector|Key|Float|List(Strided)?)|InsertList|en(Remove|Control)?|FindList)|o(o(pSound(Master|Slave)?|kAt)|adURL|g(10)?))|A(sin|ngleBetween|cos|t(tachToAvatar|an2)|d(dToLand(BanList|PassList)|justSoundVolume)|pply(RotationalImpulse|Impulse)|vatarOnSitTarget|llowInventoryDrop|x(isAngle2Rot|es2Rot)|bs))\\b'
+    'name': 'support.function.lsl'
+  }
+  {
+    'comment': 'LSL Function Constants'
+    'match': '\\b(OBJECT_(NAME|DESC|POS|ROT|VELOCITY|OWNER|GROUP|CREATOR)|R(OTATE|E(GION_FLAG_(RESTRICT_PUSHOBJECT|BLOCK_(TERRAFORM|FLY)|SANDBOX|DISABLE_(COLLISIONS|PHYSICS)|FIXED_SUN|ALLOW_D(IRECT_TELEPORT|AMAGE))|MOTE_DATA_(RE(PLY|QUEST)|CHANNEL)|VERSE))|MASK_(GROUP|BASE|NEXT|OWNER|EVERYONE)|S(MOOTH|C(RIPTED|ALE)|T(RING_TRIM(_(HEAD|TAIL))?|ATUS_(R(OTATE_(X|Y|Z)|ETURN_AT_EDGE)|BLOCK_GRAB|SANDBOX|DIE_AT_EDGE|PH(YSICS|ANTOM))))|HTTP_(M(IMETYPE|ETHOD)|BODY_(MAXLENGTH|TRUNCATED)|VERIFY_CERT)|C(HANGED_(S(HAPE|CALE)|COLOR|TEXTURE|INVENTORY|LINK|ALLOWED_DROP)|ONTROL_(R(IGHT|OT_(RIGHT|LEFT))|ML_LBUTTON|BACK|DOWN|UP|FWD|L(BUTTON|EFT))|AMERA_(BEHINDNESS_(LAG|ANGLE)|DISTANCE|P(ITCH|OSITION(_(THRESHOLD|L(OCKED|AG)))?)|FOCUS(_(THRESHOLD|OFFSET|L(OCKED|AG)))?|ACTIVE))|TYPE_(ROTATION|STRING|IN(TEGER|VALID)|VECTOR|KEY|FLOAT)|INVENTORY_(GESTURE|BODYPART|S(CRIPT|OUND)|NOTECARD|CLOTHING|TEXTURE|OBJECT|LANDMARK|A(NIMATION|LL))|D(EBUG_CHANNEL|ATA_(RATING|BORN|SIM_(RATING|STATUS|POS)|NAME|ONLINE|PAYINFO))|P(RIM_(ROTATION|MATERIAL(_(RUBBER|GLASS|METAL|STONE|PLASTIC|FLESH|WOOD|LIGHT))?|BUMP_(GRAVEL|B(RI(GHT|CKS)|LOBS|ARK)|S(HINY|T(ONE|UCCO)|IDING|UCTION)|NONE|C(HECKER|ONCRETE)|TILE|D(ISKS|ARK)|W(OOD|EAVE)|LARGETILE)|S(HINY_(MEDIUM|HIGH|NONE|LOW)|IZE)|HOLE_(SQUARE|CIRCLE|TRIANGLE|DEFAULT)|COLOR|T(YPE(_(RING|BOX|SPHERE|CYLINDER|T(ORUS|UBE)|PRISM))?|E(X(GEN_(DEFAULT|PLANAR)|TURE)|MP_ON_REZ))|P(H(YSICS|ANTOM)|O(SITION|INT_LIGHT))|FLEXIBLE)|SYS_(SRC_(MAX_AGE|BURST_(RA(TE|DIUS)|SPEED_M(IN|AX)|PART_COUNT)|T(EXTURE|ARGET_KEY)|INNERANGLE|O(MEGA|UTERANGLE)|PATTERN(_(DROP|EXPLODE|ANGLE(_CONE(_EMPTY)?)?))?|A(NGLE_(BEGIN|END)|CCEL))|PART_(MAX_AGE|BOUNCE_MASK|START_(SCALE|COLOR|ALPHA)|TARGET_(POS_MASK|LINEAR_MASK)|INTERP_(SCALE_MASK|COLOR_MASK)|E(MISSIVE_MASK|ND_(SCALE|COLOR|ALPHA))|F(OLLOW_(SRC_MASK|VELOCITY_MASK)|LAGS)|WIND_MASK))|ING_PONG|ERM(_(MO(DIFY|VE)|COPY|TRANSFER|ALL)|ISSION_(C(HANGE_LINKS|ONTROL_CAMERA)|T(R(IGGER_ANIMATION|ACK_CAMERA)|AKE_CONTROLS)|DEBIT|ATTACH))|A(RCEL_(MEDIA_COMMAND_(STOP|T(IME|EXTURE)|U(RL|NLOAD)|P(LAY|AUSE)|LOOP|A(GENT|UTO_ALIGN))|COUNT_(GROUP|SELECTED|T(OTAL|EMP)|O(THER|WNER))|DETAILS_(GROUP|NAME|OWNER|DESC|AREA)|FLAG_(RESTRICT_PUSHOBJECT|USE_(BAN_LIST|LAND_PASS_LIST|ACCESS_(GROUP|LIST))|LOCAL_SOUND_ONLY|ALLOW_(GROUP_(SCRIPTS|OBJECT_ENTRY)|SCRIPTS|CREATE_OBJECTS|TERRAFORM|DAMAGE|FLY|LANDMARK|ALL_OBJECT_ENTRY)))|SSIVE|Y(MENT_INFO_(ON_FILE|USED)|_(HIDE|DEFAULT))))|VEHICLE_(REFERENCE_FRAME|B(UOYANCY|ANKING_(MIX|TIMESCALE|EFFICIENCY))|HOVER_(HEIGHT|TIMESCALE|EFFICIENCY)|TYPE_(B(OAT|ALLOON)|SLED|NONE|CAR|AIRPLANE)|VERTICAL_ATTRACTION_(TIMESCALE|EFFICIENCY)|FLAG_(MOUSELOOK_(BANK|STEER)|HOVER_(GLOBAL_HEIGHT|TERRAIN_ONLY|UP_ONLY|WATER_ONLY)|NO_DEFLECTION_UP|CAMERA_DECOUPLED|LIMIT_(ROLL_ONLY|MOTOR_UP))|LINEAR_(MOTOR_(TIMESCALE|OFFSET|D(IRECTION|ECAY_TIMESCALE))|DEFLECTION_(TIMESCALE|EFFICIENCY)|FRICTION_TIMESCALE)|ANGULAR_(MOTOR_(TIMESCALE|D(IRECTION|ECAY_TIMESCALE))|DEFLECTION_(TIMESCALE|EFFICIENCY)|FRICTION_TIMESCALE))|L(I(ST_STAT_(RANGE|GEOMETRIC_MEAN|M(IN|E(DIAN|AN)|AX)|S(TD_DEV|UM(_SQUARES)?)|NUM_COUNT)|NK_(ROOT|SET|THIS|ALL_(CHILDREN|OTHERS)))|OOP|AND_(R(EVERT|AISE)|MEDIUM_BRUSH|SM(OOTH|ALL_BRUSH)|NOISE|L(OWER|EVEL|ARGE_BRUSH)))|A(GENT(_(MOUSELOOK|BUSY|S(CRIPTED|ITTING)|CROUCHING|TYPING|IN_AIR|ON_OBJECT|FLYING|WALKING|A(TTACHMENTS|WAY|LWAYS_RUN)))?|NIM_ON|CTIVE|TTACH_(R(SHOULDER|H(IP|AND)|U(LEG|ARM)|PEC|E(YE|AR)|FOOT|L(LEG|ARM))|MOUTH|B(ELLY|ACK)|HEAD|NOSE|CH(IN|EST)|PELVIS|L(SHOULDER|H(IP|AND)|U(LEG|ARM)|PEC|E(YE|AR)|FOOT|L(LEG|ARM)))|LL_SIDES))\\b'
+    'name': 'support.constant.lsl'
+  }
+  {
+    'match': '\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)|(\\.[0-9]+)\\b'
+    'name': 'constant.numeric.lsl'
+  }
+  {
+    'captures':
+      '1':
+        'name': 'name.functions.global.lsl'
+    'match': '(\\b\\w+)(?=\\s*\\()'
+  }
+  {
+    'match': '\\b\\w+\\b'
+    'name': 'variable.other.lsl'
+  }
+  {
+    'begin': '"'
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.definition.string.begin.lsl'
+    'end': '"(?!$)'
+    'endCaptures':
+      '0':
+        'name': 'punctuation.definition.string.end.lsl'
+    'name': 'string.quoted.double.lsl'
+    'patterns': [
+      {
+        'match': '\\\\(\\\\|["nt])'
+        'name': 'constant.character.escape.lsl'
+      }
+      {
+        'match': '\\\\.'
+        'name': 'invalid.illegal.unknown-escape.lsl'
+      }
+      {
+        'match': '\\s\\s+'
+        'name': 'invalid.suspect.string.multiple.spaces.lsl'
+      }
+      {
+        'match': '"$'
+        'name': 'invalid.suspect.string.line.end.lsl'
+      }
+    ]
+  }
+  {
+    'begin': '(//)'
+    'beginCaptures':
+      '1':
+        'name': 'punctuation.definition.comment.lsl'
+    'end': '$'
+    'name': 'comment.line.double-slash.lsl'
+    'patterns': [
+      {
+        'match': '\\s+(?=$)'
+        'name': 'invalid.suspect.comment.line.end.lsl'
+      }
+      {
+        'match': '\\s\\s+'
+        'name': 'invalid.suspect.comment.multiple.spaces.lsl'
+      }
+    ]
+  }
+]
+'scopeName': 'source.lsl'

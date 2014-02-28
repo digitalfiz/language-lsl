@@ -1,0 +1,28 @@
+'.source.esl, .source.lsl':
+  'do':
+    'prefix': 'do'
+    'body': 'do {\n\t${1:code}\n} while( ${2:!(${3:condition})} );$0\n'
+  'for range and step':
+    'prefix': 'for'
+    'body': 'for( ${1:i} = ${2:1}; ${1:i} <= ${3:max}; ${1:i} += ${4:step} )$0'
+  'for-':
+    'prefix': 'for'
+    'body': '${1:${2:count}--;\n}for( ${3:i} = ${2:count}$4; ${3:i} >= 0; ${3:i}-- )$0'
+  'for':
+    'prefix': 'for'
+    'body': 'for( ${1:i} = 0; ${1:i} < ${2:count}; ${1:i}++ )$0'
+  'for range':
+    'prefix': 'for'
+    'body': 'for( ${1:i} = ${2:1}; ${1:i} <= ${3:max}; ${1:i}++ )$0'
+  'if':
+    'prefix': 'if'
+    'body': 'if( ${1:!(${2:condition})} )$0'
+  'list add hack':
+    'prefix': 'l+'
+    'body': '${1:myList} = (${1:myList}=[]) + ${1:myList} + ${2:[${3:"${4:ListElement}"}]}$0'
+  'string add hack':
+    'prefix': 's+'
+    'body': '${1:myString} = (${1:myString}="") + ${1:myString} + ${2:"${3:String}"}$0'
+  'while':
+    'prefix': 'wh'
+    'body': 'while( ${1:!(${2:condition})} )$0'

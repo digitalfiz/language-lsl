@@ -1,0 +1,13 @@
+{
+  "name": "language-lsl",
+  "version": "1.0.0",
+  "private": false,
+  "description": "This is a conversion of the TextMate bundle at https://github.com/digitalfiz/LSL.tmbundle",
+  "repository": "https://github.com/digitalfiz/language-lsl",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+  }
+}
