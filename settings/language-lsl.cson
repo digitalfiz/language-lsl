@@ -1,5 +1,9 @@
-'.source.esl, .source.lsl':
+'.source.lsl':
 	'editor':
+		'autoIndentOnPaste': false
+		'softTabs': true
+		'tabLength': 4
+		'softWrap': true
 		'increaseIndentPattern': '^(?![^{]*//.*\\{).*\\{[^}"\']*$'
 		'decreaseIndentPattern': '^\\s*\\}[;\\s]*$'
 		'commentStart': '//'
@@ -245,11 +249,16 @@
 			'MASK_OWNER'
 			'NULL_KEY'
 			'OBJECT_ATTACHED_POINT'
+			'OBJECT_BODY_SHAPE_TYPE'
 			'OBJECT_CHARACTER_TIME'
+			'OBJECT_CLICK_ACTION'
 			'OBJECT_CREATOR'
 			'OBJECT_DESC'
 			'OBJECT_GROUP'
+			'OBJECT_HOVER_HEIGHT'
+			'OBJECT_LAST_OWNER_ID'
 			'OBJECT_NAME'
+			'OBJECT_OMEGA'
 			'OBJECT_OWNER'
 			'OBJECT_PATHFINDING_TYPE'
 			'OBJECT_PHANTOM'
@@ -323,6 +332,9 @@
 			'PARCEL_MEDIA_COMMAND_TYPE'
 			'PARCEL_MEDIA_COMMAND_UNLOAD'
 			'PARCEL_MEDIA_COMMAND_URL'
+			'PASS_ALWAYS'
+			'PASS_IF_NOT_HANDLED'
+			'PASS_NEVER'
 			'PASSIVE'
 			'PATROL_PAUSE_AT_WAYPOINTS'
 			'PAYMENT_INFO_ON_FILE'
@@ -660,6 +672,7 @@
 			'XP_ERROR_NONE'
 			'XP_ERROR_NOT_FOUND'
 			'XP_ERROR_NOT_PERMITTED'
+			'XP_ERROR_NOT_PERMITTED_LAND'
 			'XP_ERROR_NO_EXPERIENCE'
 			'XP_ERROR_QUOTA_EXCEEDED'
 			'XP_ERROR_RETRY_UPDATE'
@@ -782,6 +795,7 @@
 			'llGetAnimationList'
 			'llGetAnimationOverride'
 			'llGetAttached'
+			'llGetAttachedList'
 			'llGetBoundingBox'
 			'llGetCameraPos'
 			'llGetCameraRot'
