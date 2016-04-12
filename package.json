@@ -1,6 +1,6 @@
 {
   "name": "language-lsl",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "private": false,
   "description": "A Linden Scripting Language package for Atom",
   "homepage": "https://atom.io/packages/language-lsl/",
