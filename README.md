@@ -1,8 +1,7 @@
 # `language-lsl` for the [Atom Editor](https://www.atom.io/)
 
-[![GitHub total downloads](https://img.shields.io/github/downloads/digitalfiz/language-lsl/total.svg?style=flat-square&label=downloads%20total)](https://github.com/digitalfiz/language-lsl/releases/)
-[![GitHub latest downloads](https://img.shields.io/github/downloads/digitalfiz/language-lsl/latest/total.svg?style=flat-square&label=downloads%20latest%20release)](https://github.com/digitalfiz/language-lsl/archive/master.zip)
-[![GitHub release](https://img.shields.io/github/release/digitalfiz/language-lsl.svg?style=flat-square&label=latest%20release)](https://github.com/digitalfiz/language-lsl/releases/latest/)
+[![Atom Version](https://img.shields.io/apm/v/language-lsl.svg?style=flat-square)](https://atom.io/packages/language-lsl)
+[![Atom Downloads](https://img.shields.io/apm/dm/language-lsl.svg?style=flat-square)](https://atom.io/packages/language-lsl)
 [![GitHub issues](https://img.shields.io/github/issues/digitalfiz/language-lsl.svg?style=flat-square)](https://github.com/digitalfiz/language-lsl/issues?utf8=✓&q=is%3Aissue+is%3Aopen)
 [![GitHub watchers](https://img.shields.io/github/watchers/digitalfiz/language-lsl.svg?style=flat-square)](https://github.com/digitalfiz/language-lsl/watchers/)
 [![GitHub stars](https://img.shields.io/github/stars/digitalfiz/language-lsl.svg?style=flat-square)](https://github.com/digitalfiz/language-lsl/stargazers/)
