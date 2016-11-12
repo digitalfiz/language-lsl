@@ -2,7 +2,7 @@
   "name": "language-lsl",
   "version": "2.2.0",
   "private": false,
-  "description": "A Linden Scripting Language package for Atom",
+  "description": "A Linden Scripting Language package for Atom. Tweaked for LSL Forge.",
   "homepage": "https://atom.io/packages/language-lsl/",
   "repository": {
     "type": "git",
