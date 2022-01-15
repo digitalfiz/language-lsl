@@ -1439,6 +1439,8 @@
 	'sensor':
 		'prefix': 'sensor'
 		'body': 'sensor(integer ${1:index})\n{\n\t$0\n}'
+	'default':
+		'prefix': 'default'
 	'state':
 		'prefix': 'state'
 		'body': 'state ${1:name}'
