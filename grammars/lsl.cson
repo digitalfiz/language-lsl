@@ -1,7 +1,7 @@
 'name': 'LSL'
 'scopeName': 'source.lsl'
 'fileTypes': [
-    'lsl'
+    'lsl', 'lslp', 'lslm'
 ]
 'patterns': [
     { 'include': '#value' }
@@ -61,6 +61,18 @@
                 'name': 'punctuation.definition.comment.lsl'
         'match': '(//).*$\\n?'
         'name': 'comment.line.double-slash.lsl'
+    'pragma_inline':
+        'captures':
+            '1':
+                'name': 'punctuation.definition.comment.lsl'
+        'match': '^//\\s*pragma inline\\s*$\\n?'
+        'name': 'entity.name.function.lsl'
+    'module':
+        'captures':
+            '1':
+                'name': 'punctuation.definition.module.lsl'
+        'match': '^\\$.*$\\n?'
+        'name': 'entity.name.function.lsl'
     'constant':
         'patterns': [ {
                 'match': '\\b(default|state)\\b'
@@ -208,7 +220,7 @@
             }
         ]
     'operator':
-        'patterns': [ 
+        'patterns': [
             {
                 'name': 'keyword.operator.increment.lsl'
                 'match': '\\+\\+'
@@ -370,6 +382,8 @@
         'name': 'storage.type.lsl'
     'value':
         'patterns': [
+            { 'include': '#pragma_inline' }
+            { 'include': '#module' }
             { 'include': '#commentblock' }
             { 'include': '#commentline' }
             { 'include': '#state' }
